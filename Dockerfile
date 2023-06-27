@@ -3,7 +3,7 @@ WORKDIR /usr/app/
 COPY . . 
 RUN gradle build
 
-FROM openjdk:latest
+FROM openjdk:17
 ENV JAR_NAME=app.jar
 ENV APP_HOME=/usr/app/
 WORKDIR $APP_HOME
