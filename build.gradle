@@ -1,0 +1,44 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.1'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'io.levchugov'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation group: 'org.awaitility', name: 'awaitility', version: '4.2.0'
+}
+
+jar {
+	enabled = false
+}
+
+tasks.bootJar {
+	archiveFileName.set("app.jar")
+}
+
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

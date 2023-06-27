@@ -1,0 +1,5 @@
+server:
+  port: 8080
+rate-limit:
+  time: 1 #seconds
+  request-count: 300
